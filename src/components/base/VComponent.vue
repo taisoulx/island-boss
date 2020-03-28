@@ -3,7 +3,7 @@
     <h1
       class="font-weight-light mb-2"
       style="color:#3c4858; font-size:24px"
-      v-text="`Vuetify ${heading}`"
+      v-text="`${heading}`"
     />
 
     <span

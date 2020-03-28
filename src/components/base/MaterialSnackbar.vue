@@ -59,8 +59,10 @@
     .v-alert--material,
     .v-snack__wrapper
       border-radius: 4px
+      min-width: 350px
 
     .v-snack__content
       overflow: visible
       padding: 0
+
 </style>

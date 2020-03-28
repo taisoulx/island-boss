@@ -8,11 +8,11 @@
         'v-image--sm': this.$vuetify.breakpoint.smAndDown,
         'v-image--md': this.$vuetify.breakpoint.mdAndDown
       }"
-      :src="require(`@/assets/${src || 'clint-mckoy.jpg'}`)"
+      :src="require(`../../../../assets/${src || 'clint-mckoy.jpg'}`)"
       gradient="to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)"
       min-height="100%"
     >
-      <router-view />
+    <router-view />
     </v-img>
   </v-content>
 </template>
@@ -49,6 +49,8 @@
 
     .v-image--md
       padding: 188px 0
+      opacity: 0.4
+
 
     .v-image--sm
       padding: 96px 0 188px 0

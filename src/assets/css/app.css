@@ -139,7 +139,7 @@
 }
 
 .v-application .v-navigation-drawer .v-navigation-drawer__content .v-list-item .v-list-item__content .v-list-item__title.display-2 {
-    font-size: 18px!important;
+    font-size: 18px ;
     margin-top: 12px;
     margin-bottom: 12px
 }
@@ -218,8 +218,8 @@
 }
 
 .v-list--nav {
-    padding-left: 15px;
-    padding-right: 15px
+    padding-left: 15px !important;
+    padding-right: 15px !important
 }
 
 .v-application .logo-mini {
@@ -277,7 +277,7 @@
 }
 
 .v-sheet .v-badge--overlap .v-badge__badge {
-    top: -12px;
+    top: -12px !important;
     right: -6px
 }
 
@@ -371,7 +371,7 @@
 }
 
 .v-btn.v-size--default {
-    font-size: .85rem
+    font-size: .5rem
 }
 
 .v-icon.v-icon {
@@ -1189,7 +1189,7 @@
 
 .v-timeline-item__body .subtitle-1 {
     font-weight: 300;
-    font-size: 16px!important
+    font-size: 16px !important
 }
 
 .v-timeline-item__body .body-2 {

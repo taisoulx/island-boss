@@ -11,7 +11,7 @@
       style="position: fixed; top: 115px; right: -35px; border-radius: 8px;"
     >
       <v-icon large>
-        mdi-settings
+        mdi-cog
       </v-icon>
     </v-card>
 
@@ -171,7 +171,7 @@
             </v-item>
           </v-item-group>
 
-          <v-btn
+          <!-- <v-btn
             block
             class="mb-3"
             color="success"
@@ -181,9 +181,9 @@
             target="_blank"
           >
             Buy Now
-          </v-btn>
+          </v-btn> -->
 
-          <v-btn
+          <!-- <v-btn
             block
             class="mb-3"
             color="grey darken-1"
@@ -194,9 +194,9 @@
             target="_blank"
           >
             Documentation
-          </v-btn>
+          </v-btn> -->
 
-          <v-btn
+          <!-- <v-btn
             block
             color="info"
             href="https://www.creative-tim.com/product/vuetify-material-dashboard"
@@ -205,35 +205,35 @@
             target="_blank"
           >
             Get Free Demo
-          </v-btn>
+          </v-btn> -->
 
           <div class="my-12" />
 
           <div>
-            <strong class="mb-3 d-inline-block">THANK YOU FOR SHARING!</strong>
+            <strong class="mb-3 d-inline-block">THANK YOU FOR COMMING!</strong>
           </div>
 
-          <v-btn
-            class="ma-1"
-            color="#55acee"
-            dark
-            default
-            rounded
-          >
-            <v-icon>mdi-twitter</v-icon>
-            - 45
-          </v-btn>
+<!--          <v-btn-->
+<!--            class="ma-1"-->
+<!--            color="#55acee"-->
+<!--            dark-->
+<!--            default-->
+<!--            rounded-->
+<!--          >-->
+<!--            <v-icon>mdi-twitter</v-icon>-->
+<!--            - 45-->
+<!--          </v-btn>-->
 
-          <v-btn
-            class="ma-1"
-            color="#3b5998"
-            dark
-            default
-            rounded
-          >
-            <v-icon>mdi-facebook</v-icon>
-            - 50
-          </v-btn>
+<!--          <v-btn-->
+<!--            class="ma-1"-->
+<!--            color="#3b5998"-->
+<!--            dark-->
+<!--            default-->
+<!--            rounded-->
+<!--          >-->
+<!--            <v-icon>mdi-facebook</v-icon>-->
+<!--            - 50-->
+<!--          </v-btn>-->
         </v-card-text>
       </v-card>
     </v-menu>
@@ -301,13 +301,13 @@
         this.setBarImage(val)
       },
       scrim(val) {
-        this.$store.commit('SET_SCRIM', val)
+        this.$store.commit('vuetify/SET_SCRIM', val)
       }
     },
 
     methods: {
       ...mapMutations({
-        setBarImage: 'SET_BAR_IMAGE'
+        setBarImage: 'vuetify/SET_BAR_IMAGE'
       })
     }
   }

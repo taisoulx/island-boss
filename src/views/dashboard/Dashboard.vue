@@ -832,4 +832,7 @@
 .v-sheet {
   border-radius: 4px;
 }
+.display-2 {
+  font-size: 1.8rem !important;
+}
 </style>

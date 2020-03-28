@@ -1,12 +1,5 @@
 <template>
-  <v-app-bar
-    absolute
-    app
-    color="transparent"
-    flat
-    height="75"
-    style="width: auto;"
-  >
+  <v-app-bar absolute app color="transparent" flat height="75" style="width: auto;">
     <v-btn
       fab
       small
@@ -21,10 +14,7 @@
       </v-icon>
     </v-btn>
 
-    <v-toolbar-title
-      class="hidden-sm-and-down"
-      v-text="$route.name"
-    />
+    <v-toolbar-title class="hidden-sm-and-down" v-text="$route.name" />
 
     <v-spacer />
 
@@ -35,15 +25,8 @@
       class="mb-2"
       style="max-width: 165px;"
     >
-      <template
-        v-if="$vuetify.breakpoint.mdAndUP"
-        v-slot:append-outer
-      >
-        <v-btn
-          class="mt-n2"
-          fab
-          small
-        >
+      <template v-if="$vuetify.breakpoint.mdAndUP" v-slot:append-outer>
+        <v-btn class="mt-n2" fab small>
           <v-icon>mdi-magnify</v-icon>
         </v-btn>
       </template>
@@ -51,31 +34,14 @@
 
     <div class="mx-3" />
 
-    <v-btn
-      min-width="0"
-      text
-    >
+    <v-btn min-width="0" text>
       <v-icon>mdi-view-dashboard</v-icon>
     </v-btn>
 
-    <v-menu
-      bottom
-      left
-      offset-y
-      origin="top right"
-      transition="scale-transition"
-    >
+    <v-menu bottom left offset-y origin="top right" transition="scale-transition">
       <template v-slot:activator="{ attrs, on }">
-        <v-btn
-          min-width="0"
-          text
-          v-bind="attrs"
-          v-on="on"
-        >
-          <v-badge
-            color="red"
-            overlap
-          >
+        <v-btn min-width="0" text v-bind="attrs" v-on="on">
+          <v-badge color="red" overlap>
             <template v-slot:badge>
               <span class="caption">5</span>
             </template>
@@ -85,58 +51,28 @@
         </v-btn>
       </template>
 
-      <v-list
-        :tile="false"
-        nav
-      >
+      <v-list :tile="false" nav>
         <div>
-          <app-bar-item
-            v-for="(n, i) in notifications"
-            :key="`item-${i}`"
-          >
+          <app-bar-item v-for="(n, i) in notifications" :key="`item-${i}`">
             <v-list-item-title v-text="n" />
           </app-bar-item>
         </div>
       </v-list>
     </v-menu>
 
-    <v-menu
-      bottom
-      left
-      min-width="200"
-      offset-y
-      origin="top right"
-      transition="scale-transition"
-    >
+    <v-menu bottom left min-width="200" offset-y origin="top right" transition="scale-transition">
       <template v-slot:activator="{ attrs, on }">
-        <v-btn
-          min-width="0"
-          text
-          v-bind="attrs"
-          v-on="on"
-        >
+        <v-btn min-width="0" text v-bind="attrs" v-on="on">
           <v-icon>mdi-account</v-icon>
         </v-btn>
       </template>
 
-      <v-list
-        :tile="false"
-        flat
-        nav
-      >
+      <v-list :tile="false" flat dense nav>
         <template v-for="(p, i) in profile">
-          <v-divider
-            v-if="p.divider"
-            :key="`divider-${i}`"
-            class="mb-2 mt-2"
-          />
+          <v-divider v-if="p.divider" :key="`divider-${i}`" class="mb-2 mt-2" />
 
-          <app-bar-item
-            v-else
-            :key="`item-${i}`"
-            to="/"
-          >
-            <v-list-item-title v-text="p.title" />
+          <app-bar-item v-else :key="`item-${i}`">
+            <v-list-item-title v-text="p.title" @click="profileCall(p)" />
           </app-bar-item>
         </template>
       </v-list>
@@ -145,70 +81,93 @@
 </template>
 
 <script>
-  // Components
-  import { VHover, VListItem } from 'vuetify/lib'
+// Components
+import { VHover, VListItem } from "vuetify/lib";
 
-  // Utilities
-  import { mapState, mapMutations } from 'vuex'
+// Utilities
+import { mapState, mapMutations } from "vuex";
 
-  export default {
-    name: 'DashboardCoreAppBar',
+export default {
+  name: "DashboardCoreAppBar",
 
-    components: {
-      AppBarItem: {
-        render(h) {
-          return h(VHover, {
-            scopedSlots: {
-              default: ({ hover }) => h(VListItem, {
+  components: {
+    AppBarItem: {
+      render(h) {
+        return h(VHover, {
+          scopedSlots: {
+            default: ({ hover }) => h(
+                VListItem,
+                {
                   attrs: this.$attrs,
                   class: {
-                    'black--text': !hover,
-                    'white--text secondary elevation-12': hover
+                    "black--text": !hover,
+                    "white--text secondary elevation-12": hover
                   },
                   props: {
-                    activeClass: '',
+                    activeClass: "",
                     dark: hover,
                     link: true,
                     ...this.$attrs
                   }
-                }, this.$slots.default)
-            }
-          })
-        }
+                },
+                this.$slots.default
+              )
+          }
+        });
       }
-    },
+    }
+  },
 
-    props: {
-      value: {
-        type: Boolean,
-        default: false
-      }
-    },
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    }
+  },
 
-    data: () => ({
-      notifications: [
-        'Mike John Responded to your email',
-        'You have 5 new tasks',
-        `You're now friends with Andrew`,
-        'Another Notification',
-        'Another one'
-      ],
-      profile: [
-        { title: 'Profile' },
-        { title: 'Settings' },
-        { divider: true },
-        { title: 'Log out' }
-      ]
+  data: () => ({
+    notifications: [
+      "Mike John Responded to your email",
+      "You have 5 new tasks",
+      `You're now friends with Andrew`,
+      "Another Notification",
+      "Another one"
+    ],
+    profile: [{ title: "Profile" }, { title: "Settings" }, { divider: true }, { title: "Log out" }],
+    redirect: () => {}
+  }),
+
+  computed: {
+    ...mapState(["drawer"])
+  },
+
+  methods: {
+    ...mapMutations({
+      setDrawer: "SET_DRAWER"
     }),
 
-    computed: {
-      ...mapState(['drawer'])
-    },
-
-    methods: {
-      ...mapMutations({
-        setDrawer: 'SET_DRAWER'
-      })
+    async profileCall(p) {
+      const redirect = () => {
+        // 退出登陆
+        this.$store.dispatch("user/resetToken");
+        this.$message({
+          message: "退出登陆成功",
+          type: "warning"
+        });
+        // 给个演示显示弹出，体验感更好
+        setTimeout(() => {
+          this.$router.push("/pages/login", () => {});
+        }, 1500);
+      };
+      if (p.title === "Log out") {
+        await this.$confirm({
+          message: "确定要退出登陆？",
+          title: "提示",
+          // callback是点击确认后的回调
+          callback: redirect
+        });
+      }
     }
   }
+};
 </script>

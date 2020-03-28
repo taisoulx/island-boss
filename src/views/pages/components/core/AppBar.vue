@@ -46,11 +46,11 @@
           text: 'Dashboard',
           to: '/'
         },
-        {
-          icon: 'mdi-currency-usd',
-          text: 'Pricing',
-          to: '/pages/pricing'
-        },
+        // {
+        //   icon: 'mdi-currency-usd',
+        //   text: 'Pricing',
+        //   to: '/pages/pricing'
+        // },
         {
           icon: 'mdi-account-multiple-plus',
           text: 'Register',
@@ -70,7 +70,7 @@
       titles: {
         '/pages/lock': 'Lock Page',
         '/pages/login': 'Login Page',
-        '/pages/pricing': 'Pricing Page',
+        // '/pages/pricing': 'Pricing Page',
         '/pages/register': 'Register Page'
       }
     }),

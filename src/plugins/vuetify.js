@@ -1,6 +1,11 @@
+// src/plugins/vuetify.js
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@mdi/font/css/materialdesignicons.css'
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 import i18n from '@/i18n'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
 
 Vue.use(Vuetify)
 
@@ -20,5 +25,8 @@ export default new Vuetify({
       dark: theme,
       light: theme
     }
-  }
+  },
+  icons: {
+    iconfont: 'mdi', // default - only for display purposes
+  },
 })
